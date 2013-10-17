@@ -3,7 +3,7 @@
 #include <WindowsConstants.au3>
 
 Opt("GUIOnEventMode", 1)
-$mainwindow = GUICreate("Cardex Jump", 600, 120, 10, 570)
+$mainwindow = GUICreate("Cardex Jump", 600, 120, 0, 580)
 WinSetOnTop("Cardex Jump", "", 1)
 
 GUISetOnEvent($GUI_EVENT_CLOSE, "CLOSEClicked")
@@ -12,7 +12,7 @@ $codigo = GUICtrlCreateInput("", 20, 10, 66, 19)
 
 $button2012 = GUICtrlCreateButton("2012", 20, 40, 60)
 $button2013 = GUICtrlCreateButton("2013", 90, 40, 60)
-$button2012and13 = GUICtrlCreateButton("2012 - now", 40, 70, 90)
+$button2012and13 = GUICtrlCreateButton("2012 xmas", 40, 70, 90)
 
 $estoque = GUICtrlCreateInput("", 92, 10, 110, 19)
 $notes = GUICtrlCreateEdit("Último container - ", 208, 10, 348, 100)
@@ -75,9 +75,29 @@ Func fnGen2012and13()
    MouseClick("left", 210, 164)
    Sleep(200)
    
-   Send("{RIGHT}01{RIGHT}2012")
-   Sleep(500)
-   Send("{ENTER}")
+   Send("{RIGHT}10{RIGHT}2012")
+   Sleep(100)
+   
+     ; open calendar
+   MouseClick("left", 488, 271)
+   
+   ; move calendar to december
+   ; UPDATED 9 Sept 2013
+   ; ===== CHANGE THIS
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   
+   ; click on 31
+   MouseClick("left", 451, 437)
+   
+   ;Send("{ENTER}")
    ;WinWaitActive(" Ficha do Produto (PARALELO)  ")
    
    MouseMove(412, 77)
@@ -123,8 +143,10 @@ Func fnGen2012()
    MouseClick("left", 488, 271)
    
    ; move calendar to december
-   ; UPDATED 5 July 2013
+   ; UPDATED 9 Sept 2013
    ; ===== CHANGE THIS
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
    MouseClick("left", 414, 297)
    MouseClick("left", 414, 297)
    MouseClick("left", 414, 297)

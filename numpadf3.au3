@@ -1,4 +1,4 @@
-HotKeySet("{NUMPADDOT}", "_d")
+;HotKeySet("{NUMPADDOT}", "_d")
 HotKeySet("{NUMPADADD}", "_d")
 
 While 1

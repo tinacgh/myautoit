@@ -2,7 +2,7 @@
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
 
-Global $verif = FileOpen("sortedautoit.txt", 0)
+Global $verif = FileOpen("sorted.txt", 0)
 
 Opt("GUIOnEventMode", 1)
 $mainwindow = GUICreate("Cardex Verif", 600, 120, 0, 580)
@@ -10,7 +10,7 @@ WinSetOnTop("Cardex Verif", "", 1)
 
 GUISetOnEvent($GUI_EVENT_CLOSE, "CLOSEClicked")
 ;$mylabel = GUICtrlCreateLabel("Version: May (update in June)", 30, 10)
-$codigo = GUICtrlCreateInput("", 20, 10, 56, 19)
+$codigo = GUICtrlCreateInput("", 20, 10, 66, 19)
 
 $button2012 = GUICtrlCreateButton("2012", 20, 40, 60)
 $button2013 = GUICtrlCreateButton("2013", 90, 40, 60)
@@ -18,10 +18,9 @@ $button2013 = GUICtrlCreateButton("2013", 90, 40, 60)
 ;;GUICtrlSetState(-1, $GUI_DISABLE)
 $button2012and13 = GUICtrlCreateButton("now-Mar.8", 40, 70, 85)
 
-$estoque = GUICtrlCreateInput("", 159, 10, 45, 19)
-$japediu = GUICtrlCreateInput("", 82, 10, 75, 19) 
-$notes = GUICtrlCreateEdit("Último container - saldo anterior", 208, 10, 348, 100)
-;;$notes = GUICtrlCreateEdit("", 208, 10, 348, 100)
+$estoque = GUICtrlCreateInput("", 92, 10, 110, 19)
+;;$notes = GUICtrlCreateEdit("Último container - saldo anterior", 208, 10, 348, 100)
+$notes = GUICtrlCreateEdit("", 208, 10, 348, 100)
 
 $buttonNext = GUICtrlCreateButton("next", 166, 40)
 $buttonClip = GUICtrlCreateButton("copy", 166, 70)
@@ -49,7 +48,7 @@ While 1
    $newcode = GUICtrlRead($codigo)
    If $oldcode <> $newcode Then
 	  GUICtrlSetData($notes, "Último container - saldo anterior")
-	;;  GUICtrlSetData($notes, "")
+	  GUICtrlSetData($notes, "")
 	  GUICtrlSetData($estoque, "")
 	  $oldcode = $newcode
    EndIf
@@ -61,14 +60,7 @@ Func fnNext()
    If @error = -1 Then
 	  GUICtrlSetData($codigo, "END")
    Else
-	  If StringInStr($line, "@") Then
-		 Local $chegando = StringSplit($line, "@")
-		 GUICtrlSetData($japediu, $chegando[2])
-		 GUICtrlSetData($codigo, $chegando[1])
-	  Else
-		 GUICtrlSetData($japediu, "")
-		 GUICtrlSetData($codigo, $line)
-	  EndIf
+	  GUICtrlSetData($codigo, $line)
    EndIf
 EndFunc
 
@@ -79,7 +71,7 @@ EndFunc
 
 Func addUC()
    GUICtrlSetData($notes, GUICtrlRead($notes) & @CRLF & "Último container - saldo anterior")
-   ;;GUICtrlSetData($notes, "")
+   GUICtrlSetData($notes, "")
 EndFunc
 
 Func fnCopyToClipboard()
@@ -101,7 +93,7 @@ Func fnLoad()
    Sleep(200)
    Send(GUICtrlRead($codigo))
    Send("{ENTER}")
-   MouseMove(180, 654)
+   MouseMove(20, 687)
 EndFunc
 
 Func fnGen2012and13()
@@ -154,25 +146,11 @@ Func fnGen2013()
    
    MouseClick("left", 210, 62)
    MouseClick("left", 210, 164)
-   Sleep(600)
-   
-   Send("{RIGHT}01{RIGHT}2013")
    Sleep(200)
+   
+   Send("{RIGHT}01{RIGHT}")
+   Sleep(500)
    Send("{ENTER}")
-   ;
-   Sleep(100)
-
-   ; open calendar
-   ;;MouseClick("left", 488, 271)
-   
-   ; move calendar to december
-   ; UPDATED 2 jan 2014
-   ; ===== CHANGE THIS
-   ;;MouseClick("left", 414, 297)
-   
-   ; click on 31
-   ;;MouseClick("left", 484, 438)
-   
    ;WinWaitActive(" Ficha do Produto (PARALELO)  ")
    MouseMove(412, 77)
 EndFunc

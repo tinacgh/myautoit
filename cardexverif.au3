@@ -158,21 +158,23 @@ Func fnGen2013()
    
    Send("{RIGHT}01{RIGHT}2013")
    Sleep(200)
-   Send("{ENTER}")
+   ;; Send("{ENTER}")
    ;
    Sleep(100)
 
    ; open calendar
-   ;;MouseClick("left", 488, 271)
+   MouseClick("left", 488, 271)
    
    ; move calendar to december
-   ; UPDATED 2 jan 2014
+   ; UPDATED 3 feb 2014
    ; ===== CHANGE THIS
-   ;;MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
+   MouseClick("left", 414, 297)
    
    ; click on 31
-   ;;MouseClick("left", 484, 438)
+   MouseClick("left", 484, 438)
    
+   Sleep(100)
    ;WinWaitActive(" Ficha do Produto (PARALELO)  ")
    MouseMove(412, 77)
 EndFunc

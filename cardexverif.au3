@@ -12,7 +12,7 @@ GUISetOnEvent($GUI_EVENT_CLOSE, "CLOSEClicked")
 ;$mylabel = GUICtrlCreateLabel("Version: May (update in June)", 30, 10)
 $codigo = GUICtrlCreateInput("", 20, 10, 56, 19)
 
-$button2012 = GUICtrlCreateButton("2012", 20, 40, 60)
+$button2014 = GUICtrlCreateButton("2014", 20, 40, 60)
 $button2013 = GUICtrlCreateButton("2013", 90, 40, 60)
 ;; REMOVE LATER
 ;;GUICtrlSetState(-1, $GUI_DISABLE)
@@ -31,7 +31,7 @@ $buttonLoad = GUICtrlCreateButton("load", 5, 75)
 
 
 
-GUICtrlSetOnEvent($button2012, "fnGen2012")
+GUICtrlSetOnEvent($button2014, "fnGen2014")
 GUICtrlSetOnEvent($button2013, "fnGen2013")
 GUICtrlSetOnEvent($button2012and13, "fnGen2012and13")
 GUICtrlSetOnEvent($buttonNext, "fnNext")
@@ -179,7 +179,7 @@ Func fnGen2013()
    MouseMove(412, 77)
 EndFunc
 
-Func fnGen2012()
+Func fnGen2014()
    MouseClick("left", 88, 12)
    Sleep(200)
    Send("{F3}")
@@ -190,29 +190,25 @@ Func fnGen2012()
    
    MouseClick("left", 210, 62)
    MouseClick("left", 210, 164)
-   Sleep(200)
+   Sleep(600)
    
-   Send("{RIGHT}01{RIGHT}2012")
+   Send("{RIGHT}01{RIGHT}2014")
    Sleep(100)
+   
+   Send("{ENTER}")
 
    ; open calendar
-   MouseClick("left", 488, 271)
+   ; MouseClick("left", 488, 271)
    
    ; move calendar to december
    ; UPDATED 9 Sept 2013
    ; ===== CHANGE THIS
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
+   ; MouseClick("left", 414, 297)
+   ; MouseClick("left", 414, 297)
+   ; ...etc... 
    
    ; click on 31
-   MouseClick("left", 451, 437)
+   ; MouseClick("left", 451, 437)
    
    ;WinWaitActive(" Ficha do Produto (PARALELO)  ")
    MouseMove(412, 77)

@@ -19,12 +19,13 @@ $button2013 = GUICtrlCreateButton("2013", 90, 40, 60)
 $button2012and13 = GUICtrlCreateButton("now-Mar.8", 40, 70, 85)
 
 $estoque = GUICtrlCreateInput("", 159, 10, 45, 19)
+$estoque2 = GUICtrlCreateInput("", 159, 35, 45, 19)
 $japediu = GUICtrlCreateInput("", 82, 10, 75, 19) 
 $notes = GUICtrlCreateEdit("Último container - saldo anterior", 208, 10, 348, 100)
 ;;$notes = GUICtrlCreateEdit("", 208, 10, 348, 100)
 
-$buttonNext = GUICtrlCreateButton("next", 166, 40)
-$buttonClip = GUICtrlCreateButton("copy", 166, 70)
+$buttonNext = GUICtrlCreateButton("next", 166, 60)
+$buttonClip = GUICtrlCreateButton("copy", 166, 90)
 $buttonClear = GUICtrlCreateButton("clear", 562, 10)
 $buttonLoad = GUICtrlCreateButton("load", 5, 75)
 ;$buttonAddUC = GUICtrlCreateButton("add UC", 550, 40)
@@ -51,6 +52,7 @@ While 1
 	  GUICtrlSetData($notes, "Último container - saldo anterior")
 	;;  GUICtrlSetData($notes, "")
 	  GUICtrlSetData($estoque, "")
+	  GUICtrlSetData($estoque2, "")
 	  $oldcode = $newcode
    EndIf
    Sleep(100)
@@ -101,7 +103,7 @@ Func fnLoad()
    Sleep(200)
    Send(GUICtrlRead($codigo))
    Send("{ENTER}")
-   MouseMove(180, 654)
+   MouseMove(180, 669)
 EndFunc
 
 Func fnGen2012and13()
@@ -166,8 +168,9 @@ Func fnGen2013()
    MouseClick("left", 488, 271)
    
    ; move calendar to december
-   ; UPDATED 3 feb 2014
+   ; UPDATED 6 mar 2014
    ; ===== CHANGE THIS
+   MouseClick("left", 414, 297)
    MouseClick("left", 414, 297)
    MouseClick("left", 414, 297)
    

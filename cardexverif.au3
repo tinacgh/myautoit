@@ -72,6 +72,15 @@ Func fnNext()
 		 GUICtrlSetData($codigo, $line)
 	  EndIf
    EndIf
+   
+   ; manipulate Python Gui
+   MouseClick("left", 770, 610)
+   MouseClick("left", 870, 610)
+   Send(GUICtrlRead($codigo))
+   MouseClick("left", 975, 610)
+   
+   ; click on fnNext()
+   MouseClick("left", 20, 690)
 EndFunc
 
 Func fnClearEdit()

@@ -118,7 +118,8 @@ EndFunc
 ;EndFunc
 
 Func fnLoad()
-   MouseClick("left", 88, 12)
+   ; MouseClick("left", 88, 12)
+   WinActivate("Produto")
    Sleep(200)
    Send("{F3}")
    Sleep(200)
@@ -135,7 +136,8 @@ Func fnLoad()
 EndFunc
 
 Func fnGen2012and13()
-   MouseClick("left", 88, 12)
+   ;MouseClick("left", 88, 12)
+   WinActivate("Produto")
    Sleep(200)
    Send("{F3}")
    Sleep(200)
@@ -174,7 +176,8 @@ Func fnGen2012and13()
 EndFunc
 
 Func fnGen2013()
-   MouseClick("left", 88, 12)
+   ;MouseClick("left", 88, 12)
+   WinActivate("Produto")
    Sleep(200)
    Send("{F3}")
    Sleep(200)
@@ -211,7 +214,8 @@ Func fnGen2013()
 EndFunc
 
 Func fnGen2014()
-   MouseClick("left", 88, 12)
+   ;MouseClick("left", 88, 12)
+   WinActivate("Produto")
    Sleep(200)
    Send("{F3}")
    Sleep(200)

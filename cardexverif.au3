@@ -128,9 +128,11 @@ Func fnLoad()
    
    ; manipulate Python Gui
    MouseClick("left", 1125, 615)  ; clear
+   Sleep(100)
    MouseClick("left", 1195, 615)  ; click on text entry
+   Sleep(100)
    Send(GUICtrlRead($codigo))
-   MouseClick("left", 1265, 615)  ; load
+   MouseClick("left", 1250, 615)  ; load
    
    MouseMove(180, 669)
 EndFunc
@@ -183,11 +185,11 @@ Func fnGen2013()
    Sleep(200)
    Send(GUICtrlRead($codigo))
    Send("{ENTER}")
-   Sleep(300)
+   Sleep(200)
    
    MouseClick("left", 210, 62)
    MouseClick("left", 210, 164)
-   Sleep(600)
+   Sleep(200)
    
    Send("{RIGHT}01{RIGHT}2013")
    Sleep(200)

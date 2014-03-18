@@ -201,11 +201,15 @@ Func fnGen2013()
    MouseClick("left", 488, 271)
    
    ; move calendar to december
-   ; UPDATED 6 mar 2014
+   ; UPDATED 18 mar 2014
    ; ===== CHANGE THIS
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
-   MouseClick("left", 414, 297)
+   
+   ; MouseClick("left", 414, 297)
+   ; MouseClick("left", 414, 297)
+   ; MouseClick("left", 414, 297)
+   For $i = 1 To @MON
+	  MouseClick("left", 414, 297)
+   Next
    
    ; click on 31
    MouseClick("left", 484, 438)

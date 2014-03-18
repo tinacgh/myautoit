@@ -4,7 +4,7 @@
 #include <FileConstants.au3>
 
 Opt("GUIOnEventMode", 1)
-$mainwindow = GUICreate("Codigo Buttons", 600, 120, 550, 580)
+$mainwindow = GUICreate("Codigo Buttons", 600, 120, 450, 580)
 WinSetOnTop("Codigo Buttons", "", 1)
 
 $codigo = GUICtrlCreateInput("", 20, 10, 56, 19)

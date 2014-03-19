@@ -189,29 +189,39 @@ Func fnSaveGreater()
 EndFunc
 
 Func fnSave()
-   If StringLen(GUICtrlRead($codigo)) > 1 Then	  
+   Local $buttons[17]
+   $buttons[0] = $codigo
+   $buttons[1] = $button01
+   $buttons[2] = $button02
+   $buttons[3] = $button03
+   $buttons[4] = $button04
+   $buttons[5] = $button05
+   $buttons[6] = $button06
+   $buttons[7] = $button07
+   $buttons[8] = $button08
+   $buttons[9] = $button09
+   $buttons[10] = $button10
+   $buttons[11] = $button11
+   $buttons[12] = $button12
+   $buttons[13] = $button13
+   $buttons[14] = $button14
+   $buttons[15] = $button15
+   $buttons[16] = $dummy16
+		
+   Local $unique = True
+   For $i = 1 To 15
+	  If GUICtrlRead($codigo) == GUICtrlRead($buttons[$i]) Then
+		 $unique = False
+		 GUICtrlSetData($buttonSave, GUICtrlRead($codigo))
+		 GUICtrlSetData($codigo, "")
+		 fnLoadSave()
+	  EndIf
+   Next
+   
+   If StringLen(GUICtrlRead($codigo)) > 1 And $unique Then
 	  Local Const $codigoFile = "C:\Users\Heitor\Desktop\install Autoit\Scripts\buttonsdata.txt"
 	  Local $hFileOpen = FileOpen($codigoFile, $FO_OVERWRITE)
 	  
-	  Local $buttons[17]
-	  $buttons[0] = $codigo
-	  $buttons[1] = $button01
-	  $buttons[2] = $button02
-	  $buttons[3] = $button03
-	  $buttons[4] = $button04
-	  $buttons[5] = $button05
-	  $buttons[6] = $button06
-	  $buttons[7] = $button07
-	  $buttons[8] = $button08
-	  $buttons[9] = $button09
-	  $buttons[10] = $button10
-	  $buttons[11] = $button11
-	  $buttons[12] = $button12
-	  $buttons[13] = $button13
-	  $buttons[14] = $button14
-	  $buttons[15] = $button15
-	  $buttons[16] = $dummy16
-		  
 	  Local $numSmaller = 0
 	  For $i = 1 To 15
 		 Local $iCmp = StringCompare(GUICtrlRead($codigo), GUICtrlRead($buttons[$i]))
